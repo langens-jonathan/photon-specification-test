@@ -1,21 +1,10 @@
 setup:
-  triple_store: "<http://test.com> <http://test.com> <http://test.com>"
+  triple_store: "<http://test.com/objects/1> <http://test.com/somePredicate> <http://test.com/objects/2>"
 photons:
   - triple_test:
       method: GET
       route: /all
       mutations: None
       response: 
-        text: "<http://test.com> <http://test.com> <http://test.com>"
+        text: "<http://test.com/objects/1> <http://test.com/somePredicate> <http://test.com/objects/2>"
         code: 200
-  - config_test:
-     method: GET
-     route: /config
-     mutations: None
-     response:
-       code: 200
-       text: "ok"
-  - accept_deltas:
-     method: DELTA
-     deltas: {{json: true}}
-     mutations: None
